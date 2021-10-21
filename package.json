@@ -1,0 +1,37 @@
+{
+  "name": "mytinerary-rivarola-eliana",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliirivarola23/MyTinerary-Rivarola-Eliana.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliirivarola23/MyTinerary-Rivarola-Eliana/issues"
+  },
+  "homepage": "https://github.com/eliirivarola23/MyTinerary-Rivarola-Eliana#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0",
+    "sweetalert2": "^11.1.2"
+  }
+}

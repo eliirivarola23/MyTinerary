@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import MainCity from "../components/MainCity";
 
 const Cities = (props) => {
-  const [cargando, SetCargando] = useState(true)
+  const [cargando, SetCargando] = useState(true);
   useEffect(() => {
     async function fetchearCiudades() {
       try {
@@ -22,7 +22,7 @@ const Cities = (props) => {
         });
         props.history.push("/");
       } finally {
-        SetCargando(!cargando)
+        SetCargando(!cargando);
       }
     }
     fetchearCiudades();
@@ -34,7 +34,7 @@ const Cities = (props) => {
   }
 
   let CiudadesTodas = props.ciudadesFiltradas.map((ciudad) => (
-    <MainCity  ciudad={ciudad} key={ciudad._id} />
+    <MainCity ciudad={ciudad} key={ciudad._id} />
   ));
 
   const mensaje = (
@@ -49,7 +49,9 @@ const Cities = (props) => {
   return (
     <div
       className="home"
-      style={{ backgroundImage: `url("https://i.postimg.cc/htFzFLNt/itsukushima.jpg ")` }}
+      style={{
+        backgroundImage: `url("https://i.postimg.cc/htFzFLNt/itsukushima.jpg ")`,
+      }}
     >
       <NavBar />
       <section>
@@ -75,7 +77,6 @@ const Cities = (props) => {
 const mapDispatchToProps = {
   fetchearCiudades: ciudadesActions.obtenerCiudades,
   filtroCiudades: ciudadesActions.ciudadAFiltrar,
-
 };
 
 const mapStateToProps = (state) => {

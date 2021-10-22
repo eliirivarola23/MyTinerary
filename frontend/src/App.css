@@ -70,7 +70,8 @@ h3 {
   padding: 2vh 3vw;
 }
 
-input.buscador, textarea {
+input.buscador,
+textarea {
   background-color: rgba(0, 0, 0, 0.507) !important;
   border-bottom: 1px solid rgb(167, 167, 167);
 }
@@ -133,7 +134,6 @@ a.active,
 }
 .user2 {
   border-radius: 42px;
-  /* width: 4.5vw; */
   height: 9.7vh;
 }
 .heart p {
@@ -334,7 +334,8 @@ a.active,
   font-weight: bold;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 1vw;
   border: none;
   outline: none;
@@ -392,7 +393,6 @@ p.descripcion {
   background-position: 30% 20%;
   cursor: pointer;
   background-size: cover;
-
 }
 
 .galeria {
@@ -437,9 +437,9 @@ a span {
 }
 ::placeholder {
   color: white !important;
-
 }
-input , textarea{
+input,
+textarea {
   background-color: rgba(53, 0, 0, 0) !important;
   color: white;
 }
@@ -613,7 +613,9 @@ nav a:hover,
     margin-bottom: 2vh;
     border: none;
   }
-
+  p {
+    margin-bottom: 0;
+  }
   .foto:first-child,
   .foto:nth-child(2),
   .foto:nth-child(3),
@@ -1001,13 +1003,15 @@ div a:hover {
 .boton:hover,
 h1:hover,
 div.heart:hover,
-nav a:hover, .boton2:hover {
+nav a:hover,
+.boton2:hover {
   transform: scale(1.1);
   transition: all 800ms ease;
   cursor: pointer;
 }
 
-.boton,.boton2 {
+.boton,
+.boton2 {
   width: 36vw;
   outline: none;
   border: none;
@@ -1025,7 +1029,7 @@ nav a:hover, .boton2:hover {
 }
 .usuario,
 .caja > p {
-  min-width: 5rem;
+  min-width: 6rem;
   height: 15vh;
   border-radius: 50px;
   position: absolute;
@@ -1096,8 +1100,8 @@ div .g,
 }
 
 .usuario2 {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   background-color: #fff;
   border-radius: 50px;
   background-size: contain;
@@ -1108,10 +1112,16 @@ div .g,
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1vh;
+  margin-bottom: .5rem;
+  border-bottom: 1px solid #ffffff0f!important;
+  padding: 0.5rem;
+  align-items: flex-start;
 }
-
-
+.cajaComentario p:last-child {
+  background-color: #00000096;
+  padding: 0.5rem;
+  border-radius: 1.2rem;
+}
 .comentario p {
   width: 25vw;
   text-align: start;
@@ -1164,7 +1174,7 @@ p.dropdown-item {
     min-width: 63px;
     height: 13vh;
   }
- 
+
   .g h2 {
     font-size: 2vw;
   }
@@ -1221,7 +1231,7 @@ div.fotosItinerarios {
   min-height: 70vh;
 }
 .scroll {
-  overflow-y:scroll ;
+  overflow-y: scroll;
   padding: 1vw;
   height: 30vh;
   width: 90%;

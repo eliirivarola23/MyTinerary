@@ -19,7 +19,8 @@ const NavBar = (props) => {
             <img
               className="navbar-toggler-icon  user2"
               src="/assets/logo.png"
-              alt="logo-user" width="20px"
+              alt="logo-user"
+              width="20px"
             />
           </button>
           <div className="navbar-collapse" id="navbarNavDropdown">
@@ -66,11 +67,7 @@ const NavBar = (props) => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <img
-                      className="user2"
-                      src={props.foto}
-                      alt="logo-user"
-                    />
+                    <img className="user2" src={props.foto} alt="logo-user" />
                   </p>
                 )}
                 {!props.token ? (
@@ -95,13 +92,11 @@ const NavBar = (props) => {
                     aria-labelledby="navbarDropdownMenuLink"
                   >
                     <li className="nav-link">
-                        {props.token && (
-                          <p className="dropdown-item">
-                            Welcome {props.nombre}
-                          </p>
-                        )}
-                      </li>
-                      <li>
+                      {props.token && (
+                        <p className="dropdown-item">Welcome {props.nombre}</p>
+                      )}
+                    </li>
+                    <li>
                       <p
                         className="p dropdown-item"
                         onClick={() => props.salir()}

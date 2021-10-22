@@ -47,8 +47,8 @@ const Itinerary = (props) => {
     if (!comentar) {
       mostrarMensaje("I can't be empty");
       return false;
-    } else if(!props.token) {
-      mostrarMensaje("debés estar logueado")
+    } else if (!props.token) {
+      mostrarMensaje("debés estar logueado");
     } else {
       try {
         let res = await props.subirComentario(
@@ -58,23 +58,23 @@ const Itinerary = (props) => {
               comentario: comentar,
               usuarioId: props._id,
               usuarioFoto: props.foto,
-              usuarioNombre: props.nombre
+              usuarioNombre: props.nombre,
             },
           },
           props.token
         );
-        if(!res.data.respuesta) {
-          console.log("hubo un error ")
+        if (!res.data.respuesta) {
+          console.log("hubo un error ");
         }
         if (res.data.success) {
           let nuevoComentario = {
             comentario: comentar,
             usuarioId: props._id,
             usuarioFoto: props.foto,
-            usuarioNombre: props.nombre
-          }
-          setGuardarComentarios([...guardarComentarios, nuevoComentario])
-          mostrarMensaje("Comment registered successfully")
+            usuarioNombre: props.nombre,
+          };
+          setGuardarComentarios([...guardarComentarios, nuevoComentario]);
+          mostrarMensaje("Comment registered successfully");
         } else {
           mostrarMensaje("There was a problem, try later");
         }
@@ -83,30 +83,35 @@ const Itinerary = (props) => {
       }
     }
   };
-  const comentarioArray = guardarComentarios.map((com,index) => (
-    <Comentario key={com._id} id={props._id} comentario={com} itinerarioId={props.itinerario._id} />
+  const comentarioArray = guardarComentarios.map((com, index) => (
+    <Comentario
+      key={com._id}
+      id={props._id}
+      comentario={com}
+      itinerarioId={props.itinerario._id}
+    />
   ));
 
   const likear = () => {
     const fetchearMeGusta = async () => {
       try {
         if (!props.token) {
-          mostrarMensaje("Debes estar Logueado para darle Like");
+          mostrarMensaje("You must be logged in to like it");
         } else {
           let res = await props.fetchearMeGusta(
             props.itinerario._id,
             props.token
-          )
+          );
           if (res.success) {
-            setCorazon(res.respuesta)
+            setCorazon(res.respuesta);
           }
         }
       } catch (e) {
-        mostrarMensaje("There was a problem, try later")
+        mostrarMensaje("There was a problem, try later");
       }
-    }
-    fetchearMeGusta()
-  }
+    };
+    fetchearMeGusta();
+  };
 
   const mostrarMensaje = (mensaje, icono) => {
     const Toast = Swal.mixin({
@@ -116,15 +121,15 @@ const Itinerary = (props) => {
       timer: 4000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener("mouseenter", Swal.stopTimer)
-        toast.addEventListener("mouseleave", Swal.resumeTimer)
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
       },
-    })
+    });
     Toast.fire({
       icon: icono || "warning",
       title: mensaje,
-    })
-  }
+    });
+  };
   const CajaComentarios = (
     <div className="caja">
       <div
@@ -147,7 +152,7 @@ const Itinerary = (props) => {
         </button>
       </div>
     </div>
-  )
+  );
 
   return (
     <section className="sectionMT">
@@ -165,7 +170,9 @@ const Itinerary = (props) => {
               className="heart"
               style={{
                 backgroundImage: `url(${
-                  !corazon.includes(props._id) ? "https://i.postimg.cc/pLvFKhTm/heart.png" : "https://i.postimg.cc/HLZ8G6tM/corazon.png"
+                  !corazon.includes(props._id)
+                    ? "https://i.postimg.cc/pLvFKhTm/heart.png"
+                    : "https://i.postimg.cc/HLZ8G6tM/corazon.png"
                 })`,
               }}
               onClick={likear}
@@ -196,8 +203,8 @@ const Itinerary = (props) => {
         {cambiar ? "View More" : "View Less"}
       </button>
     </section>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = {
   fetchearActividades: actividadesActions.obtenerActividades,
@@ -205,7 +212,7 @@ const mapDispatchToProps = {
   ingresar: usuariosActions.ingresarLocalStorage,
   subirComentario: itinerariesActions.crearComentario,
   traerFotito: usuariosActions.traerUsuario,
-}
+};
 const mapStateToProps = (state) => {
   return {
     token: state.usuarios.token,
@@ -213,6 +220,6 @@ const mapStateToProps = (state) => {
     foto: state.usuarios.url_foto,
     apellido: state.usuarios.apellido,
     _id: state.usuarios._id,
-  }
-}
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerary);

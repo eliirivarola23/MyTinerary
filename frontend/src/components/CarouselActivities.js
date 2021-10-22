@@ -32,7 +32,7 @@ const Carrusel = (props) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-  const slides =  props.actividades[0].actividades.map((item, index) => {
+  const slides = props.actividades[0].actividades.map((item, index) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}

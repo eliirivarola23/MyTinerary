@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 import Preloader from "../components/Preloader";
 import usuariosActions from "../redux/action/usuariosActions";
 
-
 const City = (props) => {
   useEffect(() => {
     const fetchearItinerarios = async () => {
@@ -52,7 +51,7 @@ const City = (props) => {
         text: "We have a problem showing you city. Try later",
       }),
       setTimeout(() => {
-        props.history.push("/cities")
+        props.history.push("/cities");
       }, 1000)
     );
   }

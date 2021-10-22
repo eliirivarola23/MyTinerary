@@ -80,8 +80,6 @@ const itinerariosControladores = {
   },
 
   modificarComentarios: async (req, res) => {
-    
-    // let itinerario = await Itinerario.findOne({ _id: req.body.id });
     try {
       if(!req.body.id) {
         let resp = await Itinerario.findOneAndUpdate(

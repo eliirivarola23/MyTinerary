@@ -67,6 +67,5 @@ router
 router
 .route("/itinerary/comentario/:id")
 .put(passport.authenticate("jwt", { session: false }),itinerariosControladores.modificarComentarios)
-.delete(itinerariosControladores.borrarComentario)
 
 module.exports = router;

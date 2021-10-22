@@ -28,9 +28,12 @@ const Form = (props) => {
         try {
           let respuesta = await props.registrarUsuario(usuario);
           if (!respuesta.data.success) {
-            respuesta.data.respuesta[0].message ?  mostrarMensaje(respuesta.data.respuesta[0].message) : mostrarMensaje(respuesta.data.respuesta);
-            }
-            respuesta.data.success && mostrarMensaje("Registered user successfully", "success")
+            respuesta.data.respuesta[0].message
+              ? mostrarMensaje(respuesta.data.respuesta[0].message)
+              : mostrarMensaje(respuesta.data.respuesta);
+          }
+          respuesta.data.success &&
+            mostrarMensaje("Registered user successfully", "success");
         } catch (err) {
           mostrarMensaje("We have a problem, please try again later");
         }
@@ -69,7 +72,9 @@ const Form = (props) => {
     };
     try {
       let respuesta = await props.registrarUsuario(usuario);
-      !respuesta.data.success ?  mostrarMensaje(respuesta.data.respuesta) : mostrarMensaje("Registered user successfully", "success")
+      !respuesta.data.success
+        ? mostrarMensaje(respuesta.data.respuesta)
+        : mostrarMensaje("Registered user successfully", "success");
     } catch (err) {
       mostrarMensaje("We have a problem, please try again later");
     }
